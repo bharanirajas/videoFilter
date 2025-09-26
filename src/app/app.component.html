@@ -1,0 +1,30 @@
+<div class="">
+    <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+            <video #videoElement autoplay playsinline style="display: none;"></video>
+            <canvas #canvasElement width="600" height="480"></canvas>
+            <video #bgVideo src="assets/filters/videos/bgVideo.mp4" autoplay loop muted playsinline
+                class="bgVideo_sec d-none"></video>
+            <!-- '[class.d-none]="backgroundMode!=='video'"' -->
+            <img #bgImg src="assets/filters/hat/hat.png" alt="bg" style="display:none" />
+
+            <!-- <div class="controls mt-2">
+                <button class="btn btn-sm btn-secondary me-1" (click)="backgroundMode='none'">No BG</button>
+                <button class="btn btn-sm btn-secondary me-1" (click)="backgroundMode='blur'">Blur</button>
+                <button class="btn btn-sm btn-secondary me-1" (click)="backgroundMode='image'">Image</button>
+                <button class="btn btn-sm btn-secondary me-1" (click)="backgroundMode='video'">Video</button>
+                <input type="range" min="4" max="32" step="2" [(ngModel)]="blurStrength"
+                    *ngIf="backgroundMode==='blur'" />
+            </div> -->
+
+            <button *ngIf="captureSec" (click)="capture()" class="btn btn-primary">Take a SnapShot</button>
+            <!-- <qrcode [qrdata]="qrData" [width]="250"></qrcode> -->
+        </div>
+        <div class="col-md-6 text-center" *ngIf="qrCode">
+            <h2>Scan and share photos in your Facebook</h2>
+            <ngx-qrcode-styling [config]="config" [template]="'green'" style="display: block;"></ngx-qrcode-styling>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
